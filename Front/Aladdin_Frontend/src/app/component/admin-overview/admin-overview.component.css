@@ -1,0 +1,51 @@
+.admin-panel {
+    padding: 20px;
+    background-color: #dedddd; /* Light background color for the panel */
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .functions-container {
+    display: flex;
+    justify-content: space-evenly; /* Ensures even spacing between the boxes */
+    gap: 10px; /* Reduced the gap further */
+    flex-wrap: wrap;
+  }
+  
+  .function-box {
+    width: 140px; /* Smaller box size */
+    height: 140px; /* Makes it square */
+    background-color: #333; /* Color for the box background (Blue) */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; /* Text color inside the box */
+  }
+  
+  .function-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .function-content {
+    text-align: center;
+  }
+  
+  .function-box a {
+    text-decoration: none;
+    color: #fff; /* White text color for the link */
+  }
+  
+  .function-box h3 {
+    font-size: 16px; /* Smaller text size */
+    font-weight: bold;
+    color: #fff; /* White text inside the box */
+  }
+  

@@ -1,0 +1,10 @@
+<div class="product-container">
+  <div class="product-card" *ngFor="let product of productList" (click)="viewProductDetails(product.id)">
+    <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Product Image" class="product-image">
+
+    <div class="product-info">
+      <h3 class="product-name">{{ product.name }}</h3>
+      <p class="product-price">{{ product.price | currency }}</p>
+    </div>
+  </div>
+</div>

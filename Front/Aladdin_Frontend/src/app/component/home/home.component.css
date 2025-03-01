@@ -1,0 +1,52 @@
+.homepage {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .hero {
+    background: #f8f9fa;
+    padding: 50px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5em;
+    color: #333;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #333;;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .btn:hover {
+    background: #cb7f04;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+  }
+  
+  .feature {
+    max-width: 300px;
+  }
+  
+  .feature h2 {
+    color: #cb7f04;
+  }
+  
+  .feature p {
+    color: #555;
+  }
+  

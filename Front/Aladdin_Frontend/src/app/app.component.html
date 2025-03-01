@@ -1,0 +1,22 @@
+<ng-container *ngIf="isAuthenticated(); else loginTemplate">
+  
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="#" class="logo">Aladdin</a>
+    </div>
+    <ul class="navbar-links">
+      <li *ngIf="isAuthorized()"><a routerLink="/admin-panel">Admin Panel</a></li>
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/products">Products</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <router-outlet></router-outlet> 
+</ng-container>
+
+
+<ng-template #loginTemplate>
+  <app-login></app-login>  <!-- Show login component -->
+</ng-template>
