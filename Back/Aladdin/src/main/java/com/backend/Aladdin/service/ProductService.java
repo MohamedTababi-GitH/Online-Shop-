@@ -33,4 +33,12 @@ public class ProductService {
     public void deleteProduct(int id) {
         productRepository.deleteById(id);
     }
+
+    public Product updateProduct(int id, Product product) {
+        if (productRepository.existsById(id)) {
+            product.setId(id);
+            return productRepository.save(product);
+        }
+        return null;
+    }
 }

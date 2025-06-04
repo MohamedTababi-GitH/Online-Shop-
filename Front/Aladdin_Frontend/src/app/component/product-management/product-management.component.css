@@ -1,40 +1,118 @@
-.product-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Flexible grid with 250px minimum for each product */
-    gap: 20px;
-    padding: 20px;
+.product-table-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #f1f1f1; /* Light background for the container */
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.product-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.product-card:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+.table-header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.add-product-button {
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-product-button:hover {
+  background-color: #0056b3;
+}
+
+.add-product-button:active {
+  background-color: #004085;
+}
+
+.product-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f7f7; /* Slightly darker background for the table */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fafafa; /* Slightly darker gray */
+  font-size: 0.9rem;
+}
+
+.product-image-container {
+  flex: 0 0 50px;
 }
 
 .product-image {
-    width: 100%; /* Make the image take up the full width of its container */
-    height: 250px; /* Set a fixed height for all images */
-    object-fit: cover; /* Ensures the image fills the area while maintaining aspect ratio */
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .product-info {
-    padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 10px;
 }
 
-.product-name {
-    font-size: 1.2rem;
-    margin: 0;
+.product-index {
+    width: 40px;
+    text-align: center;
     font-weight: bold;
+  }
+
+.product-name {
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .product-price {
-    font-size: 1.1rem;
-    color: #333;
+  color: #28a745;
+}
+
+.product-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.product-actions button {
+  padding: 5px 8px;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-actions button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.product-actions button:active {
+  background-color: #0056b3;
 }

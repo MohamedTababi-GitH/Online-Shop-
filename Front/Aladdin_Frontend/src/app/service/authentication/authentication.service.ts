@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserRole } from '../../data/roles';
 import { jwtDecode } from "jwt-decode";
@@ -12,12 +12,20 @@ import { jwtDecode } from "jwt-decode";
 export class AuthenticationService {
 
   private apiUrl = 'http://localhost:8080/login'; 
+  
+  //private apiUrl = 'https://b900-193-197-66-46.ngrok-free.app/login';
   private tokenKey = 'auth_token';
 
   constructor(private http: HttpClient) {}
 
+  private httpOptions = {
+      headers: new HttpHeaders({
+        'ngrok-skip-browser-warning': 'skip-browser-warning'
+      })
+    };
+
   login(username: string, password: string): Observable<any> {
-    return this.http.post(this.apiUrl, { username, password });
+    return this.http.post(this.apiUrl, { username, password }, this.httpOptions);
   }
 
   saveToken(token: string): void {
@@ -41,8 +49,7 @@ export class AuthenticationService {
     const decodedToken: any = jwtDecode(token);
   
     // Log the expiration time and the current time
-    console.log('Token Expiration Time:', decodedToken.exp);
-    console.log('Current Time:', Date.now() / 1000);
+  
   
     const currentTime = Date.now() / 1000; // Current time in seconds
     return decodedToken.exp < currentTime;
@@ -52,8 +59,7 @@ export class AuthenticationService {
     const token = this.getToken();
     if (token) {
     const decodedToken: any = jwtDecode(token);
-  
-    console.log('User role:', decodedToken.role);
+
   
     return decodedToken.role === UserRole.ADMIN
     }

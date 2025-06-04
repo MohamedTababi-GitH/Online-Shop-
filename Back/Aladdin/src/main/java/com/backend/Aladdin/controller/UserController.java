@@ -39,7 +39,6 @@ public class UserController {
     public ResponseEntity<Map<String, String>> login(@RequestBody Users user) {
 
         String token = service.verify(user);
-        System.out.println("login api invoked");
         if (token != null) {
             Map<String, String> response = new HashMap<>();
             response.put("token", token);

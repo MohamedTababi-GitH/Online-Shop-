@@ -10,13 +10,13 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   // Check if the user is logged in
   if (token && authService.isLoggedIn() && !authService.isTokenExpired(token)) {
-    console.log("auth guard is active and user logged in");
+   
     return true;
   } else {
     // Redirect to login page if not logged in
     authService.logout();
     router.navigate(['/login']);
-    console.log("auth guard is not active and user redirected");
+    
     return false;
   }
 };

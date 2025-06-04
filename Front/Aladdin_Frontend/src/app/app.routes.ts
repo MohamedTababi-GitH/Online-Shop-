@@ -10,9 +10,10 @@ import { adminGuardGuard } from './guards/admin guard/admin-guard.guard';
 import { ProductManagementComponent } from './component/product-management/product-management.component';
 import { AdminOverviewComponent } from './component/admin-overview/admin-overview.component';
 import { OrderManagementComponent } from './component/order-management/order-management.component';
+import { ProductFormComponent } from './component/product-form/product-form.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' }, // Default route to redirect to login if not authenticated
+  { path: '',component: HomeComponent, canActivate: [authGuard] }, // Default route to redirect to login if not authenticated
   { path: 'products', component: MainComponent, canActivate: [authGuard] },
   { path: 'contact', component: ContactComponent, canActivate: [authGuard] },
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,8 @@ export const routes: Routes = [
     children: [
       { path: '', component: AdminOverviewComponent , canActivate:[adminGuardGuard, authGuard]}, 
       { path: 'product-management', component: ProductManagementComponent, canActivate:[adminGuardGuard, authGuard] },
+      { path: 'product-management/add', component: ProductFormComponent, canActivate:[adminGuardGuard, authGuard]},
+      { path: 'product-management/edit/:id', component: ProductFormComponent, canActivate:[adminGuardGuard, authGuard] },
       { path: 'orders', component: OrderManagementComponent , canActivate:[adminGuardGuard, authGuard]}
     ]
   }

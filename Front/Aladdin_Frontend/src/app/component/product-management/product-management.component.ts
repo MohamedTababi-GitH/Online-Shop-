@@ -3,10 +3,11 @@ import { ProductsLoaderService } from '../../service/product loader/products-loa
 import { Product } from '../../data/product';
 import { ImageLoaderService } from '../../service/image loader/image-loader.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product-management',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './product-management.component.html',
   styleUrl: './product-management.component.css'
 })
@@ -21,6 +22,14 @@ export class ProductManagementComponent implements OnInit{
   
   
     ) {}
+
+    deleteProduct(id: number): void {
+      this.productService.deleteProductById(id).subscribe(() => {
+        this.productList = this.productList.filter(product => product.id !== id);
+      });
+    }
+    
+
   
     ngOnInit(): void {
       this.productService.getProducts().subscribe(products => {

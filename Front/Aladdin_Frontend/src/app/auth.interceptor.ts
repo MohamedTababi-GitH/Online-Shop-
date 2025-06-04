@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
 export const AuthInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
   const authService = inject(AuthenticationService);  
   const token = authService.getToken();
-  console.log('Intercepting request:', req.url);
+  
 
    if (token && !authService.isTokenExpired(token)) {
-    console.log(token);
+  
     const clonedRequest = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`

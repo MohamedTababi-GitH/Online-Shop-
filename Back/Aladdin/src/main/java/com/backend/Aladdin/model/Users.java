@@ -14,6 +14,8 @@ public class Users {
 
     private String role;
 
+    public Users() {}
+
     public String getRole() {
         return role;
     }

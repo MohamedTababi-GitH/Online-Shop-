@@ -1,10 +1,27 @@
-<div class="product-container">
-    <div class="product-card" *ngFor="let product of productList">
-      <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Product Image" class="product-image">
+<div class="product-table-container">
+    <div class="table-header">
+      <h2>Product Management</h2>
+      <!-- Add Product Button with routerLink -->
+      <button class="add-product-button" [routerLink]="['/admin-panel/product-management/add']">Add Product</button>
+    </div>
+    
+    <div class="product-table">
+      <div class="product-row" *ngFor="let product of productList; let i = index">
+        <!-- Counter -->
+        <div class="product-index">{{ i + 1 }}</div>
   
-      <div class="product-info">
-        <h3 class="product-name">{{ product.name }}</h3>
-        <p class="product-price">{{ product.price | currency }}</p>
+        <div class="product-image-container">
+          <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Product Image" class="product-image">
+        </div>
+        <div class="product-info">
+          <div class="product-name">{{ product.name }}</div>
+          <div class="product-price">{{ product.price | currency }}</div>
+        </div>
+        <div class="product-actions">
+          <!-- Edit button with dynamic product ID -->
+          <button [routerLink]="['/admin-panel/product-management/edit', product.id]">Edit</button>
+          <button (click)="deleteProduct(product.id)">Delete</button>
+        </div>
       </div>
     </div>
   </div>

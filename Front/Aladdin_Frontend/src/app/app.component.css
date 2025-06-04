@@ -33,10 +33,26 @@
   }
   
   .navbar-links a:hover {
-    color: #f39c12; /* Color change on hover */
+    color: #f39c12; 
   }
+
+  .navbar-links button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    padding: 0;
+}
+
+.navbar-links button:hover {
+    color: #f39c12; 
+}
+
   
-  /* Style for content sections */
+
   section {
     padding: 50px 20px;
     text-align: center;

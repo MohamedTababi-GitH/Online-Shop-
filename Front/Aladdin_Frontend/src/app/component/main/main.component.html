@@ -1,3 +1,18 @@
+<div class="search-container">
+  <select class="category-dropdown">
+    <option value="">All Categories</option>
+    <option value="electronics">Oriental Rags</option>
+    <option value="clothing">Clothing</option>
+    <option value="home">Sweets & Delights</option>
+  </select>
+
+  <input type="text" class="search-input" placeholder="Search for products...">
+
+  <button class="search-button">
+    🔍
+  </button>
+</div>
+
 <div class="product-container">
   <div class="product-card" *ngFor="let product of productList" (click)="viewProductDetails(product.id)">
     <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Product Image" class="product-image">

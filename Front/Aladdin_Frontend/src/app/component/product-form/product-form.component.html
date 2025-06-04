@@ -1,0 +1,36 @@
+<div class="product-form-container">
+  <!-- Image Upload Section -->
+  <div class="image-upload" (click)="triggerFileInput()">
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Product Image" />
+    <div *ngIf="!imageUrl" class="placeholder">Click to upload image</div>
+    <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
+  </div>
+
+  <!-- Product Details Form -->
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Product Name:</label>
+      <input type="text" formControlName="name" id="name" required />
+      <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched" class="error">
+        Product name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" formControlName="price" id="price" required />
+      <div *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].touched" class="error">
+        Price is required and must be greater than or equal to 0.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea formControlName="description" id="description"></textarea>
+    </div>
+
+    <button type="submit" [disabled]="productForm.invalid">
+      {{ isEditMode ? 'Update Product' : 'Add Product' }}
+    </button>
+  </form>
+</div>

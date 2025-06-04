@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { AuthenticationService } from './service/authentication/authentication.service';
@@ -15,7 +15,7 @@ import { AuthenticationService } from './service/authentication/authentication.s
 export class AppComponent {
   title = 'Aladdin_Frontend';
 
-  constructor(private authService: AuthenticationService) {}
+  constructor(private authService: AuthenticationService, private router: Router) {}
 
   
   isAuthenticated(): boolean {
@@ -24,5 +24,10 @@ export class AppComponent {
 
   isAuthorized(): boolean {
     return this.authService.isAdmin();  
+  }
+
+  logout(): void{
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
