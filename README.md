@@ -2,6 +2,12 @@
 
 This is a web-based e-commerce application with functionality for both customers and administrators. It includes a secure backend built with Spring Boot Security and JWT (JSON Web Tokens) for authentication and authorization. This project was created from scratch for fun and learning purposes! (still in progress so some functions are not complete yet (listed at the bottom))
 
+## ▶️ Demo
+Here is a quick demo of the website 
+
+![App Demo](demo.gif)
+
+
 ## ⭐ Features
 
 ### For Regular Users
@@ -19,11 +25,6 @@ This is a web-based e-commerce application with functionality for both customers
 - Authentication and authorization using Spring Boot Security and JWT (JSON Web Tokens)
 - Password hashing using BCrypt 
 
-
-## ▶️ Demo
-Here is a quick demo of the website 
-
-![App Demo](demo.gif)
 
 ## 🚀 How to Run
 
