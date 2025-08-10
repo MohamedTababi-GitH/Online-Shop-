@@ -1,16 +1,14 @@
 services:
   db:
-    image: mydb
-
+    build: MariaDB
+    container_name: db
     volumes:
       - vol:/var/lib/mysql 
-  
     ports:
       - "3306:3306"
   
-
   backend:
-    image: backend
+    build: ./Back/Aladdin
     container_name: backend
     depends_on:
       - db
@@ -22,17 +20,13 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
 
   frontend:
-    
-    image: frontend  
-
+    build: ./Front/Aladdin_Frontend  
+    container_name: frontend
     ports:
       - "4200:4200"  
-
     depends_on:
       - backend
-   
    
 
 volumes:
   vol:
-    external: true
