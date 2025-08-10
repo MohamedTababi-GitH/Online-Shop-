@@ -28,14 +28,13 @@ public class ImageController {
         }
 
         // Determine the content type
-        String contentType = "image/jpeg"; // Default to JPEG
+        String contentType = "image/jpeg"; // default JPEG
         if (imageName.endsWith(".png")) {
             contentType = "image/png";
         } else if (imageName.endsWith(".gif")) {
             contentType = "image/gif";
         }
 
-        // Return the image as a response
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_TYPE, contentType)
                 .body(resource);

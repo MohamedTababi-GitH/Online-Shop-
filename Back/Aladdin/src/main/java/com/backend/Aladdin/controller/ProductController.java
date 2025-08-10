@@ -53,15 +53,11 @@ public class ProductController {
             @RequestParam("product") String productJson,
             @RequestParam("file") MultipartFile file) {
         try {
-            // Convert the product JSON string to Product object
+          
             ObjectMapper objectMapper = new ObjectMapper();
             Product product = objectMapper.readValue(productJson, Product.class);
-
-            // Save the image and set the image path
             String filePath = saveImage(file);
-
             product.setImage_path(filePath);
-
 
             return ResponseEntity.ok(service.addProduct(product));
         } catch (IOException e) {
@@ -74,24 +70,11 @@ public class ProductController {
     public ResponseEntity<Product> updateProduct(@PathVariable int id, @RequestBody Product product) {
         Product updatedProduct = service.updateProduct(id, product);
         if (updatedProduct != null) {
-            return ResponseEntity.ok(updatedProduct); // Return updated product
+            return ResponseEntity.ok(updatedProduct); 
         }
-        return ResponseEntity.notFound().build(); // Return 404 if product not found
+        return ResponseEntity.notFound().build(); 
     }
 
-
-
-    // Image upload
-//    @PostMapping("/upload")
-//    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
-//        try {
-//            // Save the file to the directory
-//            String filePath = saveImage(file);
-//            return ResponseEntity.ok("Image uploaded successfully: " + filePath);
-//        } catch (IOException e) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error uploading image");
-//        }
-//    }
 
     private String saveImage(MultipartFile file) throws IOException {
         Path uploadPath = Paths.get(uploadDir);
@@ -105,6 +88,5 @@ public class ProductController {
 
         return fileName;
     }
-
 
 }

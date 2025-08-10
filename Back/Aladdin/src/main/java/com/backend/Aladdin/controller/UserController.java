@@ -27,13 +27,6 @@ public class UserController {
 
     }
 
-//    @PostMapping("/register")
-//    public ResponseEntity<Users> register(@RequestBody Users user) {
-//        user.setId(null); // Ignore the supplied ID
-//        Users newUser = service.register(user);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
-//    }
-
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@RequestBody Users user) {
@@ -42,7 +35,7 @@ public class UserController {
         if (token != null) {
             Map<String, String> response = new HashMap<>();
             response.put("token", token);
-            return ResponseEntity.ok(response); // Returns JSON instead of a plain string
+            return ResponseEntity.ok(response); 
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }

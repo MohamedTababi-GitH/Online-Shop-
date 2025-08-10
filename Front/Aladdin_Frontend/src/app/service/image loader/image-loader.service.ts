@@ -9,7 +9,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 export class ImageLoaderService {
 
   private apiUrl = 'http://localhost:8080/images';  
-  //private apiUrl = 'https://b900-193-197-66-46.ngrok-free.app/images';
+
   constructor(
     private http: HttpClient,
     private authService: AuthenticationService
@@ -21,12 +21,8 @@ export class ImageLoaderService {
     const token = this.authService.getToken();
     const headers = new HttpHeaders()
     .set('Authorization', `Bearer ${token}`)
-    .set('ngrok-skip-browser-warning', 'skip-browser-warning');
     const imageUrl = `${this.apiUrl}/${imagePath}`;
     return this.http.get(imageUrl, { headers, responseType: 'blob' });
-  }
-
-  
-  
+  }  
   
 }

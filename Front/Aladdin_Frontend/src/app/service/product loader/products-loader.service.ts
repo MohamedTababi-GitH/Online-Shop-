@@ -10,21 +10,14 @@ export class ProductsLoaderService {
  
 
   private apiUrl = 'http://localhost:8080/products';
-  //private apiUrl = 'https://b900-193-197-66-46.ngrok-free.app/products';
-
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'ngrok-skip-browser-warning': 'skip-browser-warning'
-    })
-  };
 
   getProducts(): Observable<Product[]>{
-    return this.http.get<Product[]>(this.apiUrl, this.httpOptions);
+    return this.http.get<Product[]>(this.apiUrl);
   } 
 
 
   getProductDetails(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`,this.httpOptions);
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
   }
 
   deleteProductById(id: number): Observable<void> {
@@ -45,10 +38,6 @@ export class ProductsLoaderService {
   
     return this.http.post<Product>(this.apiUrl, formData);
   }
-  
-  
-  
-  
   
   
     updateProduct(id: number, product: Product): Observable<Product> {

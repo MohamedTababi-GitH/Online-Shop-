@@ -12,20 +12,13 @@ import { jwtDecode } from "jwt-decode";
 export class AuthenticationService {
 
   private apiUrl = 'http://localhost:8080/login'; 
-  
-  //private apiUrl = 'https://b900-193-197-66-46.ngrok-free.app/login';
   private tokenKey = 'auth_token';
 
   constructor(private http: HttpClient) {}
 
-  private httpOptions = {
-      headers: new HttpHeaders({
-        'ngrok-skip-browser-warning': 'skip-browser-warning'
-      })
-    };
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post(this.apiUrl, { username, password }, this.httpOptions);
+    return this.http.post(this.apiUrl, { username, password });
   }
 
   saveToken(token: string): void {
@@ -47,11 +40,7 @@ export class AuthenticationService {
   isTokenExpired(token: string): boolean {
     if (!token) return true;
     const decodedToken: any = jwtDecode(token);
-  
-    // Log the expiration time and the current time
-  
-  
-    const currentTime = Date.now() / 1000; // Current time in seconds
+    const currentTime = Date.now() / 1000; 
     return decodedToken.exp < currentTime;
   }
 

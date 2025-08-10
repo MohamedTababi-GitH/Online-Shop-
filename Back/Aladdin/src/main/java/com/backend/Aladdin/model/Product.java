@@ -14,7 +14,7 @@ public class Product {
     private Double price;
     private String image_path;
 
-    // Constructors
+  
     public Product() {}
 
     public Product(String name, String description, Double price, String image_path) {

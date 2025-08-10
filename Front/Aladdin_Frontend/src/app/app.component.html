@@ -10,6 +10,12 @@
       <li><a routerLink="/products">Products</a></li>
       <li><a routerLink="/contact">Contact</a></li>
       <li><button (click)="logout()">Logout</button></li>
+      <li>
+        <button class="cart-button">
+          🛒
+          <span class="cart-count">{{itemsCount}}</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
@@ -19,5 +25,5 @@
 
 
 <ng-template #loginTemplate>
-  <app-login></app-login>  <!-- Show login component -->
+  <app-login></app-login>  <!-- login component -->
 </ng-template>
