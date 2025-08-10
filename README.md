@@ -1,6 +1,6 @@
 # Online Shop — A full-stack web application built with Angular, Spring Boot, and MariaDB
 
-This is a web-based e-commerce application with functionality for both customers and administrators. It includes a secure backend built with Spring Boot Security and JWT (JSON Web Tokens) for authentication and authorization. This project was created from scratch for fun and learning purposes! (still in progress so some functions are not complete yet (listed at the bottom))
+This is a web-based e-commerce application with functionality for both customers and administrators. It includes a secure backend built with Spring Boot Security and JWT (JSON Web Tokens) for authentication and authorization. This project was created from scratch for fun and learning purposes! (still in progress so some functions are not complete yet)
 
 ## ▶️ Demo
 Here is a quick demo of the website 
